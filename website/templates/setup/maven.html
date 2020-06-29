@@ -3,7 +3,7 @@
 <@s.scaffold title="Maven">
 	<@s.introduction>
 		<p>
-			To set up lombok with any build tool, you have to specify that the lombok dependency is required to compile your source code, but does not need to be present when running/testing/jarring/otherwise deploying your code. Generally this is called a 'provided' dependency. This page explains how to integrate lombok with the <a href="https://maven.apache.org/">Apache Maven</a> build tool.
+			To set up lombok with any build tool, you have to specify that the lombok dependency is required to compile your source code, but does not need to be present when running/testing/jarring/otherwise deploying your code. Generally this is called a "compileOnly" dependency. This page explains how to integrate lombok with the <a href="https://maven.apache.org/">Apache Maven</a> build tool.
 		</p><p>
 			Lombok is available in maven central, so telling Maven to download lombok is easy.
 		</p>
@@ -11,13 +11,14 @@
 
 	<@s.section title="Adding lombok to your pom file">
 		<p>
-			To include lombok as a 'provided' dependency, add it to your <code>&lt;dependencies&gt;</code> block like so:<pre>
+			To include lombok as a "compileOnly" dependency, add it to your <code>&lt;dependencies&gt;</code> block like so:<pre>
 &lt;dependencies&gt;
 	&lt;dependency&gt;
 		&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
 		&lt;artifactId&gt;lombok&lt;/artifactId&gt;
 		&lt;version&gt;${version}&lt;/version&gt;
-		&lt;scope&gt;provided&lt;/scope&gt;
+		&lt;scope&gt;compile&lt;/scope&gt;
+		&lt;optional&gt;true&lt;/optional&gt;
 	&lt;/dependency&gt;
 &lt;/dependencies&gt;
 </pre>
